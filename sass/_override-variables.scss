@@ -1,0 +1,14 @@
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1170px
+);
+$cyan: #53d0fc;
+$blue: darken($cyan, 20);
+
+$orange: #ff862c;
+$yellow: #fdc52e;
+$green: #98fd71;
+
+$font-size-base: 1.2rem;

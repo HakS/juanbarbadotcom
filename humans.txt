@@ -1,0 +1,19 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Juan Barba - Web developer
+    Site: juanbarba.com
+    Mail: juan.barba.o@gmail.com
+    Twitter: jbarba109
+    Location: Panama
+
+# THANKS
+
+    Name: Juan Barba
+
+# TECHNOLOGY COLOPHON
+
+    HTML5, CSS3
+    jQuery, Modernizr, Bootstrap

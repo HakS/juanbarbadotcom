@@ -1,0 +1,35 @@
+{
+  "name": "juanbarba.com",
+  "version": "1.0.0",
+  "description": "Source code for my website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HakS/juanbarba.com.git"
+  },
+  "author": "Juan Barba",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/HakS/juanbarba.com/issues"
+  },
+  "homepage": "https://github.com/HakS/juanbarba.com#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "bootstrap": "^4.1.1",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-babel": "^7.0.1",
+    "gulp-concat-vendor": "0.0.4",
+    "gulp-sass": "^4.0.1",
+    "gulp-sourcemaps": "^2.6.4"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "popper.js": "^1.14.3"
+  }
+}
