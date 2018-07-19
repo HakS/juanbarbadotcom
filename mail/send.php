@@ -6,14 +6,23 @@ use Symfony\Component\Yaml\Yaml;
 
 $yaml = Yaml::parse(file_get_contents('./settings.yml'));
 
-# First, instantiate the SDK with your API credentials
-$mg = Mailgun::create($yaml['mailgun_api']);
+header('Content-type: application/json');
 
-# Now, compose and send your message.
-# $mg->messages()->send($domain, $params);
-$mg->messages()->send($yaml['mailgun_domain'], [
-  'from'    => 'bob@example.com',
-  'to'      => 'juan.barba.o@gmail.com',
-  'subject' => 'The PHP SDK is awesome!',
-  'text'    => 'It is so simple to send a message.'
-]);
+try {
+  $mg = Mailgun::create($yaml['mailgun_api']);
+  $mg->messages()->send($yaml['mailgun_domain'], [
+    'from'    => urldecode($_POST['mail']),
+    'to'      => 'juan.barba.o@gmail.com',
+    'subject' => 'JBCOM: ' . urldecode($_POST['name']) . ' thas sent you a message',
+    'text'    => urldecode($_POST['message'])
+  ]);
+  
+  echo json_encode([
+    'message' => 'Your message has been sent successfully!'
+  ]);
+} catch (Exception $e) {
+  header('HTTP/1.1 500 Internal Server Error');
+  echo json_encode([
+    'message' => 'There has been an error. Please check your info is correctly wrote.'
+  ]);
+}

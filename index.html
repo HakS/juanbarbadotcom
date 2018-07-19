@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="css/style.css">
     
     <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js' async defer></script>
 </head>
 <body data-spy="scroll" data-target="#navbar .container">
     <!--[if lt IE 8]>
@@ -175,9 +176,14 @@
         <section id="contact" class="section">
             <div class="container">
                 <div class="row">
-                    <div class="col-12">
+                    <div id="contact-failure" class="col-12 text-center" style="display: none;">
+                        <div class="alert alert-danger" role="alert">
+                            There has been an error. Please check your data.
+                        </div>
+                    </div>
+                    <div class="col-12" id="contact-wrapper">
                         <h2 class="text-center">Contact me</h2>
-                        <form>
+                        <form id="contactForm" name="contactForm" action="">
                             <div class="form-group">
                                 <label for="name">Name</label>
                                 <input type="text" class="form-control" id="name" placeholder="Enter name">
@@ -190,8 +196,20 @@
                                 <label for="message">Message</label>
                                 <textarea class="form-control" id="message" rows="4"></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary">Send</button>
+                            <!-- <button type="submit" class="btn btn-primary">Send</button> -->
+                            <button
+                                class="g-recaptcha btn btn-primary"
+                                type="submit"
+                                data-sitekey="6Ld38lsUAAAAACq1ynEc4F-dcjU_93YEQnbIkSWK"
+                                data-callback="sendForm">
+                                Send
+                            </button>
                         </form>
+                    </div>
+                    <div id="contact-success" class="col-12 text-center" style="display: none;">
+                        <div class="alert alert-success" role="alert">
+                            Your message has been sent successfully!
+                        </div>
                     </div>
                 </div>
             </div>
@@ -217,7 +235,7 @@
                                     <i class="fa fa-github-square" aria-hidden="true"></i>
                                 </a>
                             </div>
-                            <small>Website source code at <a href="https://github.com/HakS/juanbarba.com" target="_blank">github</a>.</small>
+                            <small>Website source code at <a href="https://github.com/HakS/juanbarbadotcom" target="_blank">github</a>.</small>
                         </div>
                     </div>
                 </div>

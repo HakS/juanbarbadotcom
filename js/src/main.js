@@ -1,3 +1,39 @@
+function serialize(obj) {
+  var str = [];
+  for (var p in obj)
+    if (obj.hasOwnProperty(p)) {
+      str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+    }
+  return str.join("&");
+}
+
+function sendForm() {
+  const content = {
+    name: $("input#name").val(),
+    mail: $("input#mail").val(),
+    message: $("textarea#message").val(),
+  }
+  const xFormParams = `${serialize(content)}&${$('form#contactForm').serialize()}`;
+
+  const xhr = new XMLHttpRequest();
+  xhr.open('POST', '/mail/send.php');
+  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  xhr.onload = () => {
+    if (xhr.status !== 200) {
+      $('#contact-wrapper').show();
+      $('#contact-success').hide();
+      $('#contact-failure').show();
+      return;
+    }
+    $('#contact-wrapper').hide();
+    $('#contact-success').show();
+    $('#contact-failure').hide();
+    
+  };
+  xhr.send(encodeURI(xFormParams));
+
+}
+
 (function($) {
   $(window).ready(() => {
 
@@ -46,4 +82,5 @@
 
 
   });
+
 })(jQuery);

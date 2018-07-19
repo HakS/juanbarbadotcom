@@ -63,7 +63,7 @@ gulp.task('stylesDist', function() {
       includePaths: [bootstrapSass.in + 'scss']
     }).on('error', sass.logError))
     .pipe(autoprefixer(autoprefixerOptions))
-    .pipe(gulp.dest('.'));
+    .pipe(gulp.dest(stylesDest));
 });
 
 gulp.task('styles', function() {
@@ -101,5 +101,6 @@ gulp.task('watchStyles', function(){
     });
 })
 
+gulp.task('deploy', ['jsVendors', 'js', 'fonts', 'stylesDist']);
 gulp.task('default', ['watchJsVendors', 'watchJs', 'watchStyles']);
 
