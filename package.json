@@ -17,16 +17,6 @@
   },
   "homepage": "https://github.com/HakS/juanbarba.com#readme",
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "bootstrap": "^4.1.1",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^5.0.0",
-    "gulp-babel": "^7.0.1",
-    "gulp-concat-vendor": "0.0.4",
-    "gulp-sass": "^4.0.1",
-    "gulp-sourcemaps": "^2.6.4"
   },
   "dependencies": {
     "jquery": "^3.3.1",
