@@ -7,7 +7,12 @@ class Init extends React.Component {
 
   render() {
     return (
-      <h3>Test</h3>
+      <div className="loading">
+        <div className="loading__j1"></div>
+        <div className="loading__j2"></div>
+        <div className="loading__b1"></div>
+        <div className="loading__b2"></div>
+      </div>
     );
   }
 }
