@@ -2,9 +2,9 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const webpack = require('webpack');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const env = process.env.NODE_ENV;
-console.log(env);
 
 const config = {
   mode: env || 'development'
@@ -26,6 +26,9 @@ const stylesSettings = (modularize) => {
     {
       loader: "css-loader", options: cssLoader
     }, // translates CSS into CommonJS
+    {
+      loader: "postcss-loader"
+    }, // assign prefixes to modern properties to increase browser compatibility
     {
       loader: "sass-loader", options: {
         sourceMap: true,
@@ -64,7 +67,10 @@ const webpackConfig = {
     new MiniCssExtractPlugin({
       filename: "[name].css",
       chunkFilename: "[id].css"
-    })
+    }),
+    new CopyWebpackPlugin([
+      'assets'
+    ])
   ]
 };
 
