@@ -3,6 +3,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const path = require('path');
 
 const env = process.env.NODE_ENV;
 
@@ -21,7 +22,9 @@ const stylesSettings = (modularize) => {
   }
   const settings = [
     {
-      loader: "style-loader"
+      loader: "style-loader", options: {
+        singleton: true,
+      }
     }, // creates style nodes from JS strings
     {
       loader: "css-loader", options: cssLoader
@@ -39,6 +42,14 @@ const stylesSettings = (modularize) => {
 };
 
 const webpackConfig = {
+  entry: {
+    index: './src/index.js',
+  },
+  output: {
+    filename: '[name].bundle.js',
+    chunkFilename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'dist')
+  },
   module: {
     rules: [
       {
@@ -71,7 +82,12 @@ const webpackConfig = {
     new CopyWebpackPlugin([
       'assets'
     ])
-  ]
+  ],
+  optimization: {
+    splitChunks: {
+      chunks: 'all'
+    }
+  }
 };
 
 if (config.mode === 'development') {

@@ -1,4 +1,8 @@
+import ReactDOM from "react-dom";
 import React from "react";
+import ReactGA from 'react-ga';
+// import { Provider } from "react-redux";
+// import store from "./store";
 
 class Init extends React.Component {
   constructor(props) {
@@ -7,14 +11,25 @@ class Init extends React.Component {
 
   render() {
     return (
-      <div className="loading">
-        <div className="loading__j1"></div>
-        <div className="loading__j2"></div>
-        <div className="loading__b1"></div>
-        <div className="loading__b2"></div>
-      </div>
+      <h3>Test</h3>
     );
   }
 }
 
-export default Init;
+// export default Init;
+
+
+const Index = () => (
+  <Init />
+  );
+
+// const Index = () => (
+//   <Provider store={store}>
+//     <Main />
+//   </Provider>
+// );
+
+ReactGA.initialize('UA-69615603-1');
+ReactGA.pageview('/home');
+
+ReactDOM.render(<Index />, document.getElementById("index"));
