@@ -1,5 +1,6 @@
 import React from "react"
+import WebAbout from './web/about';
 
 export default function Home() {
-  return <div>Hello world!</div>
+  return <WebAbout></WebAbout>
 }
