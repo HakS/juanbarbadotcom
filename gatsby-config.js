@@ -5,9 +5,17 @@
  */
 
 module.exports = {
-  /* Your site config here */
+  siteMetadata: {
+    title: `Juan Barba`,
+  },
   plugins: [
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-emotion`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: { path: `./src/data/` }
+    },
   ]
 }
