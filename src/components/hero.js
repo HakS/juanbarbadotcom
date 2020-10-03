@@ -1,20 +1,31 @@
 import React from "react"
-import tw, { styled } from "twin.macro"
+// import tw, { styled } from "twin.macro"
+import tw from "twin.macro"
+import Img from "gatsby-image"
+import { graphql, useStaticQuery } from "gatsby"
 
 export default function Hero() {
-  const Hero = styled.div`
-    ${tw`w-full text-center py-40`}
-  `
-
-  const Button = styled.button`
-    margin-top: 10px;
-    ${tw`bg-blue-500 hover:bg-blue-800 text-white p-2 rounded`}
-  `
+  const data = useStaticQuery(graphql`
+    query {
+      file(relativePath: { eq: "logo.png" }) {
+        childImageSharp {
+          fixed {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+    }
+  `)
 
   return (
-    <Hero>
-      <h1>Juan Barba</h1>
-      <Button>Activate</Button>
-    </Hero>
+    <div css={tw`inline-flex w-full py-40`}>
+      <div css={tw`inline-flex mx-auto items-center`}>
+        <Img fixed={data.file.childImageSharp.fixed} alt="Juan Barba" />
+        <div css={tw`ml-6`}>
+          <div css={tw`mt-0 text-2xl`}>I am</div>
+          <h1 css={tw`mt-0 text-6xl`}>Juan Barba</h1>
+        </div>
+      </div>
+    </div>
   )
 }
