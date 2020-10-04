@@ -9,8 +9,8 @@ export default function Hero() {
     query {
       file(relativePath: { eq: "logo.png" }) {
         childImageSharp {
-          fixed {
-            ...GatsbyImageSharpFixed
+          fluid(maxWidth: 240) {
+            ...GatsbyImageSharpFluid
           }
         }
       }
@@ -18,14 +18,17 @@ export default function Hero() {
   `)
 
   return (
-    <div css={tw`inline-flex w-full py-40`}>
-      <div css={tw`inline-flex mx-auto items-center`}>
-        <Img fixed={data.file.childImageSharp.fixed} alt="Juan Barba" />
-        <div css={tw`ml-6`}>
-          <div css={tw`mt-0 text-2xl`}>I am</div>
-          <h1 css={tw`mt-0 text-6xl`}>Juan Barba</h1>
+    <>
+      <div tw="bg-gray-100 flex mx-auto items-center flex-wrap w-full h-screen justify-center">
+        <Img css={{
+          minWidth: '180px',
+          maxWidth: '240px'
+        }} tw="w-full sm:w-auto" fluid={[data.file.childImageSharp.fluid]} alt="Juan Barba" />
+        <div tw="ml-4">
+          <div tw="ml-2 mt-0 text-2xl">Hello! My name is</div>
+          <h1 tw="my-0 text-6xl">Juan Barba</h1>
         </div>
       </div>
-    </div>
+    </>
   )
 }
