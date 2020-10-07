@@ -1,27 +1,41 @@
 import React from "react"
-// import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet";
 import { GlobalStyles } from "twin.macro";
 import Hero from './hero';
 import { TypographyStyle, GoogleFont } from 'react-typography';
 
 import Typography from 'typography';
 import moragaTheme from 'typography-theme-moraga';
+import { graphql, useStaticQuery } from "gatsby";
 
 const typography = new Typography(moragaTheme)
 
-export default function Layout({ children }) {
+const Layout = ({ children }) => {
+
+  const data = useStaticQuery(
+    graphql`
+      query {
+        site {
+          siteMetadata {
+            title
+          }
+        }
+      }
+    `
+  )
+
   return (
     <>
       <GlobalStyles />
       <TypographyStyle typography={ typography } />
       <GoogleFont typography={ typography } />
-      {/* <Helmet>
-        <meta charSet="utf-8" />
-        <title>Juan Barba</title>
-        <link rel="canonical" href="http://juanbarba.com" />
-      </Helmet> */}
+      <Helmet 
+        title={data.site.siteMetadata.title}
+      />
       <Hero></Hero>
       {children}
     </>
   )
 }
+
+export default Layout
