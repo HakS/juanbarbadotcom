@@ -3,6 +3,10 @@ import tw from "twin.macro"
 import Img from "gatsby-image"
 import { graphql, useStaticQuery } from "gatsby"
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { faLinkedin } from "@fortawesome/free-brands-svg-icons"
+
 export default function Hero() {
   const data = useStaticQuery(graphql`
     query {
@@ -32,6 +36,11 @@ export default function Hero() {
             <br/>
             remotely available based in UTC-5
           </h2>
+        </div>
+
+        <div tw="absolute bottom-0 right-0 mb-5 mr-5">
+          <FontAwesomeIcon icon={faEnvelope} size="3x" />
+          <FontAwesomeIcon icon={faLinkedin} size="3x" />
         </div>
       </div>
     </>
