@@ -20,6 +20,7 @@ export default function Zone({title, color, text = "#ffffff", children}) {
     h2 {
       font-size: 4.7rem;
       letter-spacing: -0.1rem;
+      margin-bottom: 2rem;
     }
 
     h3 {
@@ -31,9 +32,7 @@ export default function Zone({title, color, text = "#ffffff", children}) {
   return (
     <Zone>
       <div tw="w-full max-w-screen-xl mx-auto px-5">
-        {title && (
-          <h2>{title}</h2>
-        )}
+        {title && <h2>{title}</h2>}
         {children}
       </div>
     </Zone>

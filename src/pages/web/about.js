@@ -6,8 +6,8 @@ import styled from '@emotion/styled';
 
 import "twin.macro";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngular, faCss3, faGit, faGoogle, faHtml5, faJs, faLaravel, faNodeJs, faPhp, faReact } from "@fortawesome/free-brands-svg-icons";
-import { faBrush, faCode, faDatabase, faMobile } from "@fortawesome/free-solid-svg-icons";
+import { faAngular, faCss3, faGit, faGithub, faGoogle, faHtml5, faJs, faLaravel, faLinkedin, faNodeJs, faPhp, faReact } from "@fortawesome/free-brands-svg-icons";
+import { faBezierCurve, faCode, faDatabase, faEnvelope, faMobile, faPaintBrush, faPalette } from "@fortawesome/free-solid-svg-icons";
 
 export default function WebAbout() {
   const Skill = styled.div`
@@ -35,6 +35,26 @@ export default function WebAbout() {
         svg {
           margin-right: 0.5rem;
         }
+      }
+    }
+  `;
+
+  const Contact = styled.div`
+    display: block;
+
+    a {
+      background: white;
+      display: block;
+      padding: 0.3rem;
+      border-radius: 5px;
+      margin-bottom: 1rem;
+      color: rgba(74,85,104,1);
+      transition: background-color 1s;
+      font-size: 1.3rem;
+
+      &:hover {
+        background: ${theme`colors.gray.200`};
+        text-decoration: none;
       }
     }
   `;
@@ -70,18 +90,39 @@ export default function WebAbout() {
             <ul>
               <li><FontAwesomeIcon icon={faGit}/>Git</li>
               <li><FontAwesomeIcon icon={faCode}/>VSCode</li>
-              <li><FontAwesomeIcon icon={faBrush}/>Photoshop</li>
-              <li><FontAwesomeIcon icon={faBrush}/>Illustrator</li>
-              <li><FontAwesomeIcon icon={faBrush}/>Krita</li>
+              <li><FontAwesomeIcon icon={faPaintBrush}/>Photoshop</li>
+              <li><FontAwesomeIcon icon={faBezierCurve}/>Illustrator</li>
+              <li><FontAwesomeIcon icon={faPalette}/>Krita</li>
             </ul>
           </Skill>
         </div>
       </Zone>
 
-      <Zone title="About" color="#54d0fb" text="#000000">
+      <Zone title="About" color="#54d0fb" text={theme`colors.gray.700`}>
       </Zone>
 
-      <Zone title="Contact" color="#98fe71" text="#000000">
+      <Zone title="Get in touch" color="#98fe71" text={theme`colors.gray.700`}>
+        <div tw="flex justify-center">
+          <div tw="w-full md:w-1/2 text-center">
+            <p>If you wanna get in touch, talk to me about a project collaboration or just say hi send an email to <a href="mailto:juan.barba.o@gmail.com">juan.barba.o@gmail.com</a> and let's talk.</p>
+
+            <Contact>
+              <a rel="noreferrer noopener" target="_blank" href="mailto:juan.barba.o@gmail.com">
+                <FontAwesomeIcon icon={faEnvelope} /> Mail me!
+              </a>
+            </Contact>
+            <Contact>
+              <a rel="noreferrer noopener" target="_blank" href="https://www.linkedin.com/in/jbarba109/">
+                <FontAwesomeIcon icon={faLinkedin} /> LinkedIn
+              </a>
+            </Contact>
+            <Contact>
+              <a rel="noreferrer noopener" target="_blank" href="https://github.com/haks">
+                <FontAwesomeIcon icon={faGithub} /> GitHub
+              </a>
+            </Contact>
+          </div>
+        </div>
       </Zone>
     </Layout>
   )
