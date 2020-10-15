@@ -7,6 +7,7 @@ import { TypographyStyle, GoogleFont } from 'react-typography';
 import Typography from 'typography';
 import moragaTheme from 'typography-theme-moraga';
 import { graphql, useStaticQuery } from "gatsby";
+import Zone from "./zone";
 
 const typography = new Typography(moragaTheme)
 
@@ -34,6 +35,12 @@ const Layout = ({ children }) => {
       />
       <Hero></Hero>
       {children}
+
+      <Zone>
+        <footer tw="text-center">
+          Juan Barba © {new Date().getFullYear()}
+        </footer>
+      </Zone>
     </>
   )
 }
