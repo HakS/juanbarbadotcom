@@ -8,6 +8,7 @@ module.exports = {
   siteMetadata: {
     title: `Juan Barba`,
   },
+  pathPrefix: "/juanbarbadotcom",
   plugins: [
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
