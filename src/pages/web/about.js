@@ -61,6 +61,7 @@ export default function WebAbout() {
         display: inline-block;
         width: 33.333%;
         text-align: center;
+        vertical-align: top;
 
         svg {
           margin-right: 0.5rem;
@@ -77,6 +78,7 @@ export default function WebAbout() {
           display: block;
           line-height: 1.2rem;
           margin-top: 0.5rem;
+          font-size: 0.7rem;
         }
       }
     }

@@ -2,15 +2,21 @@ import React from "react"
 import tw, { theme } from "twin.macro"
 import styled from '@emotion/styled';
 
-export default function Zone({title, color, text = "#ffffff", children}) {
+export default function Zone({title, color = theme`colors.gray.700`, text = "#ffffff", children}) {
   const Zone = styled.div`
-    ${tw`w-full mx-auto bg-gray-600`}
-    padding: 1.5rem 0;
+    ${tw`relative w-full mx-auto bg-gray-600`}
+    padding: 1rem 0 4rem;
     background-color: ${color};
     color: ${text};
 
-    @media (min-width: ${theme`screens.md`}) {
-      padding: 2rem 0;
+    &::before {
+      content: ' ';
+      border-top: 0 solid transparent;
+      border-bottom: 50px solid ${color};
+      border-left: 0 solid transparent;
+      border-right: 100vw solid transparent;
+      position: absolute;
+      top: -50px;
     }
 
     h1, h2, h3 {

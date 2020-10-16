@@ -57,7 +57,7 @@ const Layout = ({ children }) => {
       {children}
 
       <Zone>
-        <footer tw="text-center">
+        <footer tw="text-center mt-6 md:mt-4">
           Juan Barba © {new Date().getFullYear()}
         </footer>
       </Zone>
