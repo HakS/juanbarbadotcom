@@ -25,7 +25,12 @@ export default function WebAbout() {
   `);
 
   const Skillset = styled.div`
-    ${tw`w-full md:w-1/3`}
+    ${tw`w-full md:w-1/3 lg:px-5`}
+
+    h3 {
+      ${tw`lg:text-center mb-8`}
+    }
+
     ul {
       margin: 0 0 1.3rem;
 
@@ -48,6 +53,30 @@ export default function WebAbout() {
 
         svg {
           margin-right: 0.5rem;
+        }
+      }
+
+      @media (min-width: ${theme`screens.lg`}) {
+        margin-right: 0;
+        display: inline-block;
+        width: 33.333%;
+        text-align: center;
+
+        svg {
+          margin-right: 0.5rem;
+          display: block;
+
+          &.svg-inline--fa {
+            width: 100%;
+            height: 60px;
+          }
+        }
+
+        span {
+          width: 100%;
+          display: block;
+          line-height: 1.2rem;
+          margin-top: 0.5rem;
         }
       }
     }
@@ -80,34 +109,34 @@ export default function WebAbout() {
           <Skillset>
             <h3>Frontend</h3>
             <ul>
-              <li><FontAwesomeIcon icon={faJs}/> Javascript</li>
-              <li><FontAwesomeIcon icon={faReact}/>React</li>
-              <li><FontAwesomeIcon icon={faAngular}/>Angular 5+</li>
-              <li><FontAwesomeIcon icon={faCss3}/>CSS 3</li>
-              <li><FontAwesomeIcon icon={faHtml5}/>HTML 5</li>
-              <li><FontAwesomeIcon icon={faHtml5}/>HTML Canvas</li>
-              <li><FontAwesomeIcon icon={faGoogle}/>SEO</li>
-              <li><FontAwesomeIcon icon={faMobile}/>Responsive design</li>
+              <li><FontAwesomeIcon icon={faJs}/><span> Javascript</span></li>
+              <li><FontAwesomeIcon icon={faReact}/><span>React</span></li>
+              <li><FontAwesomeIcon icon={faAngular}/><span>Angular 5+</span></li>
+              <li><FontAwesomeIcon icon={faCss3}/><span>CSS 3</span></li>
+              <li><FontAwesomeIcon icon={faHtml5}/><span>HTML 5</span></li>
+              <li><FontAwesomeIcon icon={faHtml5}/><span>HTML Canvas</span></li>
+              <li><FontAwesomeIcon icon={faGoogle}/><span>SEO</span></li>
+              <li><FontAwesomeIcon icon={faMobile}/><span>Responsive design</span></li>
             </ul>
           </Skillset>
           <Skillset>
             <h3>Backend</h3>
             <ul>
-              <li><FontAwesomeIcon icon={faPhp}/>PHP</li>
-              <li><FontAwesomeIcon icon={faLaravel}/>Laravel</li>
-              <li><FontAwesomeIcon icon={faNodeJs}/>NodeJS</li>
-              <li><FontAwesomeIcon icon={faDatabase}/>MySQL</li>
+              <li><FontAwesomeIcon icon={faPhp}/><span>PHP</span></li>
+              <li><FontAwesomeIcon icon={faLaravel}/><span>Laravel</span></li>
+              <li><FontAwesomeIcon icon={faNodeJs}/><span>NodeJS</span></li>
+              <li><FontAwesomeIcon icon={faDatabase}/><span>MySQL</span></li>
             </ul>
           </Skillset>
           <Skillset>
             <h3>Tools</h3>
             <ul>
-              <li><FontAwesomeIcon icon={faDocker}/>Docker</li>
-              <li><FontAwesomeIcon icon={faGit}/>Git</li>
-              <li><FontAwesomeIcon icon={faCode}/>VSCode</li>
-              <li><FontAwesomeIcon icon={faPaintBrush}/>Photoshop</li>
-              <li><FontAwesomeIcon icon={faBezierCurve}/>Illustrator</li>
-              <li><FontAwesomeIcon icon={faPalette}/>Krita</li>
+              <li><FontAwesomeIcon icon={faDocker}/><span>Docker</span></li>
+              <li><FontAwesomeIcon icon={faGit}/><span>Git</span></li>
+              <li><FontAwesomeIcon icon={faCode}/><span>VSCode</span></li>
+              <li><FontAwesomeIcon icon={faPaintBrush}/><span>Photoshop</span></li>
+              <li><FontAwesomeIcon icon={faBezierCurve}/><span>Illustrator</span></li>
+              <li><FontAwesomeIcon icon={faPalette}/><span>Krita</span></li>
             </ul>
           </Skillset>
         </div>
