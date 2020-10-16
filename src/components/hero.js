@@ -28,10 +28,10 @@ export default function Hero() {
             <Img tw="w-auto" fixed={data.file.childImageSharp.fixed} alt="Juan Barba" />
             <div tw="w-full mt-8 md:mt-0 md:w-auto text-center md:text-left md:ml-4">
               <div tw="ml-1 mt-0 text-2xl">Hello! My name is</div>
-              <h1 tw="text-gray-700 font-light tracking-tight mt-0 mb-2 text-5xl sm:text-6xl">Juan Barba</h1>
+              <h1 tw="text-gray-700 font-light tracking-tight mt-0 mb-1 sm:mb-2 text-5xl sm:text-6xl">Juan Barba</h1>
             </div>
           </div>
-          <h2 tw="text-gray-700 font-light leading-9 mt-10 md:mt-12 p-5 md:p-6 text-center mb-0 border-t border-gray-300">
+          <h2 tw="text-gray-700 font-light text-xl sm:text-2xl leading-7 sm:leading-9 mt-4 sm:mt-10 md:mt-12 p-5 md:p-6 text-center mb-0 border-t border-gray-300">
             I'm a full-stack Web Developer
             <br/>
             remotely available based in UTC-5
