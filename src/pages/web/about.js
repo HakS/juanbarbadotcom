@@ -6,7 +6,7 @@ import styled from '@emotion/styled';
 
 import "twin.macro";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngular, faCss3, faGit, faGithub, faGoogle, faHtml5, faJs, faLaravel, faLinkedin, faNodeJs, faPhp, faReact } from "@fortawesome/free-brands-svg-icons";
+import { faAngular, faCss3, faDocker, faGit, faGithub, faGoogle, faHtml5, faJs, faLaravel, faLinkedin, faNodeJs, faPhp, faReact } from "@fortawesome/free-brands-svg-icons";
 import { faBezierCurve, faCode, faDatabase, faEnvelope, faMobile, faPaintBrush, faPalette } from "@fortawesome/free-solid-svg-icons";
 
 export default function WebAbout() {
@@ -88,6 +88,7 @@ export default function WebAbout() {
           <Skill>
             <h3>Tools</h3>
             <ul>
+              <li><FontAwesomeIcon icon={faDocker}/>Docker</li>
               <li><FontAwesomeIcon icon={faGit}/>Git</li>
               <li><FontAwesomeIcon icon={faCode}/>VSCode</li>
               <li><FontAwesomeIcon icon={faPaintBrush}/>Photoshop</li>
@@ -99,6 +100,30 @@ export default function WebAbout() {
       </Zone>
 
       <Zone title="About" color="#54d0fb" text={theme`colors.gray.700`}>
+        <div tw="flex flex-wrap">
+          <div tw="order-2 md:order-1 w-full md:w-auto">
+            <p>A full-stack software engineer with over {new Date().getFullYear() - 2011} years of experience.</p>
+
+            <p>
+              I have maintained, developed and launched multiple projects from scratch, carrying the development of its' back-end and front-end codebases.
+            </p>
+
+            <p>
+              I can help you with all the sides of your project:
+            </p>
+
+            <ul>
+              <li>verifying good UI/UX design,</li>
+              <li>leading/co-developing the back-end and front-end,</li>
+              <li>setting up the CI/CD,</li>
+              <li>mentoring the team,</li>
+              <li>estimating tasks,</li>
+              <li>researching possible techs,</li>
+              <li>leading, launching and monitoring the project.</li>
+            </ul>
+          </div>
+          <div tw="order-1">Image</div>
+        </div>
       </Zone>
 
       <Zone title="Get in touch" color="#98fe71" text={theme`colors.gray.700`}>
