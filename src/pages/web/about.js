@@ -8,9 +8,23 @@ import "twin.macro";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngular, faCss3, faDocker, faGit, faGithub, faGoogle, faHtml5, faJs, faLaravel, faLinkedin, faNodeJs, faPhp, faReact } from "@fortawesome/free-brands-svg-icons";
 import { faBezierCurve, faCode, faDatabase, faEnvelope, faMobile, faPaintBrush, faPalette } from "@fortawesome/free-solid-svg-icons";
+import { graphql, useStaticQuery } from "gatsby";
+import Img from 'gatsby-image';
 
 export default function WebAbout() {
-  const Skill = styled.div`
+  const data = useStaticQuery(graphql`
+    query {
+      file(relativePath: { eq: "about-pic.jpg" }) {
+        childImageSharp {
+          fixed(width: 300, height: 300) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+    }
+  `);
+
+  const Skillset = styled.div`
     ${tw`w-full md:w-1/3`}
     ul {
       margin: 0 0 1.3rem;
@@ -63,7 +77,7 @@ export default function WebAbout() {
     <Layout>
       <Zone title="Skills" color="#ff852c">
         <div tw="flex flex-wrap">
-          <Skill>
+          <Skillset>
             <h3>Frontend</h3>
             <ul>
               <li><FontAwesomeIcon icon={faJs}/> Javascript</li>
@@ -75,8 +89,8 @@ export default function WebAbout() {
               <li><FontAwesomeIcon icon={faGoogle}/>SEO</li>
               <li><FontAwesomeIcon icon={faMobile}/>Responsive design</li>
             </ul>
-          </Skill>
-          <Skill>
+          </Skillset>
+          <Skillset>
             <h3>Backend</h3>
             <ul>
               <li><FontAwesomeIcon icon={faPhp}/>PHP</li>
@@ -84,8 +98,8 @@ export default function WebAbout() {
               <li><FontAwesomeIcon icon={faNodeJs}/>NodeJS</li>
               <li><FontAwesomeIcon icon={faDatabase}/>MySQL</li>
             </ul>
-          </Skill>
-          <Skill>
+          </Skillset>
+          <Skillset>
             <h3>Tools</h3>
             <ul>
               <li><FontAwesomeIcon icon={faDocker}/>Docker</li>
@@ -95,14 +109,14 @@ export default function WebAbout() {
               <li><FontAwesomeIcon icon={faBezierCurve}/>Illustrator</li>
               <li><FontAwesomeIcon icon={faPalette}/>Krita</li>
             </ul>
-          </Skill>
+          </Skillset>
         </div>
       </Zone>
 
-      <Zone title="About" color="#54d0fb" text={theme`colors.gray.700`}>
-        <div tw="flex flex-wrap">
+      <Zone title="About" color="#98fe71" text={theme`colors.gray.700`}>
+        <div tw="flex flex-wrap md:flex-no-wrap">
           <div tw="order-2 md:order-1 w-full md:w-auto">
-            <p>A full-stack software engineer with over {new Date().getFullYear() - 2011} years of experience.</p>
+            <p>Full-stack software engineer with over {new Date().getFullYear() - 2011} years of experience.</p>
 
             <p>
               I have maintained, developed and launched multiple projects from scratch, carrying the development of its' back-end and front-end codebases.
@@ -112,21 +126,22 @@ export default function WebAbout() {
               I can help you with all the sides of your project:
             </p>
 
-            <ul>
-              <li>verifying good UI/UX design,</li>
-              <li>leading/co-developing the back-end and front-end,</li>
-              <li>setting up the CI/CD,</li>
-              <li>mentoring the team,</li>
-              <li>estimating tasks,</li>
-              <li>researching possible techs,</li>
-              <li>leading, launching and monitoring the project.</li>
+            <ul tw="list-disc">
+              <li>Verifying/co-designing good UI/UX design</li>
+              <li>Leading/co-developing front-end</li>
+              <li>Developing back-end</li>
+              <li>Estimating tasks</li>
+              <li>Researching possible techs</li>
+              <li>Colabirating with production deployment</li>
             </ul>
           </div>
-          <div tw="order-1">Image</div>
+          <div tw="order-1 w-full md:w-auto text-center mb-6 md:mb-0 ml-0 md:ml-6">
+            <Img tw="w-full rounded-full" fixed={data.file.childImageSharp.fixed} alt="Juan Barba photo on his appartment in Barranquilla" />
+          </div>
         </div>
       </Zone>
 
-      <Zone title="Get in touch" color="#98fe71" text={theme`colors.gray.700`}>
+      <Zone title="Get in touch" color="#54d0fb" text={theme`colors.gray.700`}>
         <div tw="flex justify-center">
           <div tw="w-full md:w-1/2 text-center">
             <p>If you wanna get in touch, talk to me about a project collaboration or just say hi send an email to <a href="mailto:juan.barba.o@gmail.com">juan.barba.o@gmail.com</a> and let's talk.</p>
