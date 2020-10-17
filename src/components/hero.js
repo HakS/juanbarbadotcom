@@ -37,10 +37,10 @@ export default function Hero() {
             remotely available based in UTC-5
           </h2>
           <div tw="md:absolute text-center bottom-0 right-0 mb-5 mr-5">
-            <a rel="noreferrer noopener" target="_blank" tw="mr-4 text-gray-500" href="mailto:juan.barba.o@gmail.com">
+            <a aria-label="Mail me!" rel="noreferrer noopener" target="_blank" tw="mr-4 text-gray-500" href="mailto:juan.barba.o@gmail.com">
               <FontAwesomeIcon tw="fill-current" icon={faEnvelope} size="3x" />
             </a>
-            <a rel="noreferrer noopener" target="_blank" tw="text-gray-500" href="https://www.linkedin.com/in/jbarba109/">
+            <a aria-label="Linked In" rel="noreferrer noopener" target="_blank" tw="text-gray-500" href="https://www.linkedin.com/in/jbarba109/">
               <FontAwesomeIcon tw="fill-current" icon={faLinkedin} size="3x" />
             </a>
           </div>
