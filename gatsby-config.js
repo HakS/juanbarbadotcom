@@ -9,7 +9,6 @@ module.exports = {
     title: `Juan Barba`,
     siteUrl: 'https://juanbarba.com/'
   },
-  pathPrefix: "/juanbarbadotcom",
   plugins: [
     `gatsby-plugin-cname`,
     `gatsby-plugin-next-seo`,
