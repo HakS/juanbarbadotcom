@@ -1,8 +1,65 @@
 import React from "react"
 import tw from "twin.macro";
 import styled from '@emotion/styled';
+import { graphql, useStaticQuery } from "gatsby";
+import Img from 'gatsby-image';
 
 export default function MatterPresskit() {
+  const NonStretchedImage = props => {
+    let normalizedProps = props
+    if (props.fluid && props.fluid.presentationWidth) {
+      normalizedProps = {
+        ...props,
+        style: {
+          ...(props.style || {}),
+          maxWidth: props.fluid.presentationWidth,
+          margin: "0 auto", // Used to center the image
+        },
+      }
+    }
+  
+    return <Img {...normalizedProps} />
+  }
+
+  const Video = ({ video, title }) => {
+    const VideoWrapper = styled.div`
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 */
+      height: 0;
+      margin-bottom: 1rem;
+
+      iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    `;
+
+    return (
+      <>
+        <h3>{title}</h3>
+        <VideoWrapper>
+          <iframe width="560" height="315" src={video} title={title} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </VideoWrapper>
+      </>
+    )
+  }
+
+  const data = useStaticQuery(graphql`
+    query {
+      file(relativePath: { eq: "banner.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 1000) {
+            ...GatsbyImageSharpFluid
+            presentationWidth
+          }
+        }
+      }
+    }
+  `);
+
   const Presskit = styled.div`
     p {
       margin-bottom: 1rem;
@@ -47,25 +104,28 @@ export default function MatterPresskit() {
 
   return (
     <Presskit>
-      <Header>
-        <h1>Matter</h1>
-        <div>Presskit</div>
-      </Header>
-      <div tw="flex flex-no-wrap gap-8 mx-3">
-        <StickyBar tw="flex-grow-0 flex-shrink-0">
+      <div tw="flex flex-no-wrap mx-3">
+        <StickyBar tw="flex-grow-0 flex-shrink-0 w-full lg:w-1/4">
+          <Header>
+            <h1>Matter</h1>
+            <div>Presskit</div>
+          </Header>
           <ul>
             <li><a href="#factsheet">Factsheet</a></li>
             <li><a href="#description">Description</a></li>
             <li><a href="#history">History</a></li>
             <li><a href="#features">Features</a></li>
             <li><a href="#videos">Videos</a></li>
-            <li><a href="#images">Images</a></li>
+            {/* <li><a href="#images">Images</a></li> */}
             <li><a href="#monetization">Monetization & Permission</a></li>
             <li><a href="#team">Team & Repeating Collaborators</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </StickyBar>
-        <div>
+        <div tw="flex-grow-0 flex-shrink-0 w-full lg:w-3/4">
+          <div tw="mb-6">
+            <NonStretchedImage fluid={data.file.childImageSharp.fluid} alt="Matter - Banner" />
+          </div>
           <div tw="flex flex-no-wrap gap-6">
             <Area id="factsheet" tw="flex-grow-0 flex-shrink-0 w-1/3">
               <h2>Factsheet</h2>
@@ -119,11 +179,15 @@ export default function MatterPresskit() {
           </Area>
           <Area id="videos">
             <h2>Videos</h2>
+            <div>
+              <Video video="https://www.youtube.com/embed/JoUeEn2qfzQ" title="Gameplay video, improved lights"></Video>
+              <Video video="https://www.youtube.com/embed/M4mFHsjJxPE" title="Pre-Alpha Teaser"></Video>
+            </div>
           </Area>
-          <Area id="images">
+          {/* <Area id="images">
             <h2>Images</h2>
             <a href="#">Download all screenshots & photos as .zip</a>
-          </Area>
+          </Area> */}
           <Area id="monetization">
             <h2>Monetization & Permission</h2>
             <div>Inti Voxel Games allows for the contents of Matter to be published through video broadcasting services for any commercial or non-commercial purposes. Monetization of videos created containing assets from Matter is legally & explicitly allowed by Inti Voxel Games.</div>
