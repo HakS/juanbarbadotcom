@@ -61,6 +61,9 @@ export default function MatterPresskit() {
   `);
 
   const Presskit = styled.div`
+    max-width: 1280px;
+    margin: 0 auto;
+
     p {
       margin-bottom: 1rem;
     }
