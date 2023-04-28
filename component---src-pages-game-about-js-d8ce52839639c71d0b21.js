@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[6],{AlXA:function(n,t,c){"use strict";c.r(t),c.d(t,"default",(function(){return a}));c("q1tI");var e=c("Bl7J"),u=c("qKvR");function a(){return Object(u.c)(e.a,null,Object(u.c)("p",null,"I make games"))}}}]);
-//# sourceMappingURL=component---src-pages-game-about-js-d8ce52839639c71d0b21.js.map

@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack:///./src/pages/index.js"],"names":["Home"],"mappings":"2FAAA,qFAGe,SAASA,IACtB,OAAO,YAAC,UAAD","file":"component---src-pages-index-js-ef34ecd04fa405f79584.js","sourcesContent":["import React from \"react\"\nimport WebAbout from './web/about';\n\nexport default function Home() {\n  return <WebAbout></WebAbout>\n}\n"],"sourceRoot":""}
